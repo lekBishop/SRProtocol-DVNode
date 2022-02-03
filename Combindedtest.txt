@@ -1,0 +1,98 @@
+Example from the Assignment pdf
+
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./cnnode.py 1111 recieve send 2222 3333
+[1624566223.535644] Node 1111 Routing Table
+- (0.0) -> Node 1111
+- (0.0) -> Node 2222
+- (0.0) -> Node 3333
+[1624566303.9425213] Link to 2222: 55.0 packets sent, 2 packets lost, loss rate 0.04
+[1624566304.9465098] Link to 2222: 113.0 packets sent, 7 packets lost, loss rate 0.06
+[1624566305.9603283] Link to 2222: 164.0 packets sent, 12 packets lost, loss rate 0.07
+[1624566306.974463] Link to 2222: 210.0 packets sent, 17 packets lost, loss rate 0.08
+[1624566307.948802] Node 1111 Routing Table
+- (0.0) -> Node 1111
+- (0.09) -> Node 2222
+- (0.28) -> Node 3333; Next Hop -> Node 2222
+- (0.14) -> Node 4444; Next Hop -> Node 2222
+
+(*Few seconds later*)
+
+[1624566373.807412] Link to 2222: 3043.0 packets sent, 304 packets lost, loss rate 0.1
+[1624566374.820104] Link to 2222: 3054.0 packets sent, 304 packets lost, loss rate 0.1
+[1624566375.8292334] Link to 2222: 3071.0 packets sent, 305 packets lost, loss rate 0.1
+[1624566376.8379605] Link to 3333: 668.0 packets sent, 323 packets lost, loss rate 0.48
+[1624566377.8409085] Link to 3333: 677.0 packets sent, 325 packets lost, loss rate 0.48
+[1624566378.3157275] Node 1111 Routing Table
+- (0.0) -> Node 1111
+- (0.09) -> Node 2222
+- (0.23) -> Node 3333; Next Hop -> Node 2222
+- (0.71) -> Node 4444; Next Hop -> Node 3333
+
+
+
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./cnnode.py 3333 recieve 1111 .5 2222 .2 send 4444
+[1624566286.6843877] Node 3333 Routing Table
+- (0.0) -> Node 3333
+- (0.0) -> Node 1111
+- (0.0) -> Node 2222
+- (0.0) -> Node 4444
+[1624566303.9289038] Link to 4444: 12.0 packets sent, 5 packets lost, loss rate 0.42
+[1624566304.9291234] Link to 4444: 21.0 packets sent, 9 packets lost, loss rate 0.43
+[1624566305.9294996] Link to 4444: 29.0 packets sent, 15 packets lost, loss rate 0.52
+[1624566306.9297044] Link to 4444: 40.0 packets sent, 20 packets lost, loss rate 0.5
+
+(*Few seconds later*)
+
+[1624566373.06745] Link to 4444: 670.0 packets sent, 329 packets lost, loss rate 0.49
+[1624566374.0763338] Link to 4444: 678.0 packets sent, 333 packets lost, loss rate 0.49
+[1624566375.076415] Link to 4444: 683.0 packets sent, 338 packets lost, loss rate 0.49
+[1624566376.0798156] Link to 4444: 693.0 packets sent, 342 packets lost, loss rate 0.49
+[1624566377.0800714] Link to 4444: 699.0 packets sent, 346 packets lost, loss rate 0.49
+[1624566378.0646675] Node 3333 Routing Table
+- (0.0) -> Node 3333
+- (0.23) -> Node 1111; Next Hop -> Node 2222
+- (0.14) -> Node 2222
+- (0.48) -> Node 4444
+
+
+
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./cnnode.py 2222 recieve 1111 .1 send 3333 4444
+[1624566250.3702805] Node 2222 Routing Table
+- (0.0) -> Node 2222
+- (0.0) -> Node 1111
+- (0.0) -> Node 3333
+- (0.0) -> Node 4444
+[1624566303.9344735] Link to 3333: 45.0 packets sent, 5 packets lost, loss rate 0.11
+[1624566304.9499667] Link to 3333: 96.0 packets sent, 10 packets lost, loss rate 0.1
+[1624566305.9544663] Link to 3333: 151.0 packets sent, 15 packets lost, loss rate 0.1
+[1624566306.9671996] Link to 3333: 176.0 packets sent, 22 packets lost, loss rate 0.12
+
+
+(*Few seconds later*)
+
+[1624566373.5648553] Link to 3333: 2195.0 packets sent, 415 packets lost, loss rate 0.19
+[1624566374.5820284] Link to 4444: 174.0 packets sent, 137 packets lost, loss rate 0.79
+[1624566375.5950508] Link to 3333: 2229.0 packets sent, 419 packets lost, loss rate 0.19
+[1624566376.59627] Link to 3333: 2242.0 packets sent, 425 packets lost, loss rate 0.19
+[1624566377.6046724] Link to 4444: 186.0 packets sent, 143 packets lost, loss rate 0.77
+[1624566378.0757256] Node 2222 Routing Table
+- (0.0) -> Node 2222
+- (0.09) -> Node 1111
+- (0.14) -> Node 3333
+- (0.62) -> Node 4444; Next Hop -> Node 3333
+
+
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./cnnode.py 4444 recieve 2222 .8 3333 .5 send last
+[1624566302.9264834] Node 4444 Routing Table
+- (0.0) -> Node 4444
+- (0.0) -> Node 2222
+- (0.0) -> Node 3333
+
+(*Few seconds later*)
+
+[1624566373.0589325] Node 4444 Routing Table
+- (0.0) -> Node 4444
+- (0.23) -> Node 2222
+- (0.49) -> Node 3333
+- (0.72) -> Node 1111; Next Hop -> Node 3333
+

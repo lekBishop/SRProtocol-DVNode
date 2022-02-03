@@ -1,0 +1,62 @@
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./srnode.py 1024 1025 5 -p 0.1
+node> send hello there
+[1624565833.0914454] packet0 h sent
+[1624565833.0916595] packet1 e sent
+[1624565833.0917048] packet2 l sent
+[1624565833.0917296] packet3 l sent
+[1624565833.0917702] packet4 o sent
+[1624565833.0970893] ACK0 recieved, window starts at 0
+[1624565833.097168] packet5   sent
+[1624565833.0972545] ACK1 dropped
+[1624565833.0973427] ACK3 recieved, window starts at 1
+[1624565833.097387] ACK1 dropped
+[1624565833.0974014] ACK4 recieved, window starts at 1
+[1624565833.0974586] ACK1 dropped
+[1624565833.0975769] ACK5 recieved, window starts at 1
+[1624565833.097533] packet6 t sent
+[1624565833.0976923] packet7 h sent
+[1624565833.0977373] packet8 e sent
+[1624565833.1097264] ACK1 dropped
+[1624565833.1097767] packet9 r sent
+[1624565833.1097991] ACK6 recieved, window starts at 1
+[1624565833.1098914] ACK1 dropped
+[1624565833.1099064] ACK7 recieved, window starts at 1
+[1624565833.1099298] ACK1 dropped
+[1624565833.1099432] ACK8 recieved, window starts at 1
+[1624565833.1099658] ACK1 dropped
+[1624565833.1099792] ACK9 recieved, window starts at 1
+[1624565833.1100307] packet10 e sent
+[1624565833.1101863] ACK1 dropped
+[1624565833.110206] ACK10 recieved, window starts at 1
+[1624565833.5916615] packet1 timeout, resending
+[1624565833.591997] packet2 timeout, resending
+[1624565833.5973756] ACK1 recieved, window starts at 1
+[1624565833.6025572] ACK2 recieved, window starts at 2
+node> 
+
+lb3306@csee4119-instance-1:~/csee4119/assignment2$ ./srnode.py 1025 1024 5 -p 0
+node> [1624565833.0919292] packet0 h recieved
+[1624565833.0920048] ACK0 sent, window starts at 1
+[1624565833.0921452] packet2 dropped
+[1624565833.0921707] packet3 l recieved out of order, buffered
+[1624565833.0921867] ACK3 sent, window starts at 1
+[1624565833.0922363] packet4 o recieved out of order, buffered
+[1624565833.0922523] ACK4 sent, window starts at 1
+[1624565833.0974598] packet5   recieved out of order, buffered
+[1624565833.0974884] ACK5 sent, window starts at 1
+[1624565833.104449] packet6 t recieved out of order, buffered
+[1624565833.104491] ACK6 sent, window starts at 1
+[1624565833.1045578] packet7 h recieved out of order, buffered
+[1624565833.104581] ACK7 sent, window starts at 1
+[1624565833.1046295] packet8 e recieved out of order, buffered
+[1624565833.104645] ACK8 sent, window starts at 1
+[1624565833.109958] packet9 r recieved out of order, buffered
+[1624565833.1099892] ACK9 sent, window starts at 1
+[1624565833.1101682] packet10 e recieved out of order, buffered
+[1624565833.110194] ACK10 sent, window starts at 1
+[1624565833.5919278] packet1 e recieved
+[1624565833.5919573] ACK1 sent, window starts at 2
+[1624565833.592084] packet2 l recieved
+[1624565833.592094] ACK2 sent, window starts at 11
+[1624565833.592105] message recieved: hello there
+[Summary] 1/11 packets dropped, loss rate = 0.09090909090909091%
