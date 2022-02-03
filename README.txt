@@ -1,4 +1,7 @@
 PA2 README
+CSEE 4119 Computer Networks
+
+Emulates selective repeat protocol over udp and the distance-vector algorithm as well as both combined.
 
 All of the programs check for valid port numbers and probabilities of dropping are expected [0,1]
 
